@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #f7f1e8;
+  background: #0d1412;
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(242, 104, 73, 0.15), transparent 22%),
+    radial-gradient(circle at top right, rgba(123, 211, 199, 0.14), transparent 28%),
+    #0d1412;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.card-surface {
+  @apply rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl;
+}
+
+.input-base {
+  @apply w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-sand outline-none transition placeholder:text-white/35 focus:border-teal focus:ring-2 focus:ring-teal/30;
+}
+
+.button-primary {
+  @apply inline-flex items-center justify-center rounded-2xl bg-coral px-5 py-3 text-sm font-semibold text-white transition hover:scale-[0.99] hover:bg-[#ff7c61];
+}
+
+.button-secondary {
+  @apply inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-sand transition hover:bg-white/10;
+}
+
+.section-title {
+  @apply font-display text-2xl text-sand md:text-3xl;
+}

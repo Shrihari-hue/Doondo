@@ -1,0 +1,17 @@
+{
+  "name": "doondo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start --workspace doondo-backend\" \"npm run start --workspace doondo-frontend\"",
+    "backend": "npm run start --workspace doondo-backend",
+    "frontend": "npm run start --workspace doondo-frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
