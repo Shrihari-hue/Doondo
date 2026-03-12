@@ -1,0 +1,10 @@
+{
+  "appId": "com.doondo.app",
+  "appName": "Doondo",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  }
+}

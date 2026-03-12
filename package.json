@@ -9,7 +9,13 @@
   "scripts": {
     "start": "concurrently \"npm run start --workspace doondo-backend\" \"npm run start --workspace doondo-frontend\"",
     "backend": "npm run start --workspace doondo-backend",
-    "frontend": "npm run start --workspace doondo-frontend"
+    "frontend": "npm run start --workspace doondo-frontend",
+    "mobile:build": "npm run build:mobile --workspace doondo-frontend",
+    "mobile:device": "npm run mobile:sync:device --workspace doondo-frontend",
+    "mobile:android-emulator": "npm run mobile:sync:android-emulator --workspace doondo-frontend",
+    "mobile:sync": "npm run cap:sync --workspace doondo-frontend",
+    "mobile:android": "npm run cap:open:android --workspace doondo-frontend",
+    "mobile:ios": "npm run cap:open:ios --workspace doondo-frontend"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

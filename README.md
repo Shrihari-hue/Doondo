@@ -169,6 +169,109 @@ npm run seed:pincodes --workspace doondo-backend
 4. Add `backend/.env` and `frontend/.env`.
 5. Run `npm start`.
 
+## Mobile App Setup With Capacitor
+
+Doondo now includes a Capacitor wrapper around the existing React frontend.
+
+Native project folders:
+
+- `frontend/android`
+- `frontend/ios`
+
+### Prerequisites
+
+- Android Studio for Android builds
+- Xcode for iPhone builds
+- CocoaPods for iOS dependency sync on macOS
+
+### Important Before Building Mobile
+
+The desktop web app still uses [frontend/.env](/Users/_itsshree/Doondo/Doondo/frontend/.env) with `localhost`.
+
+For mobile builds, use the included target-specific env files instead of editing `.env` manually:
+
+- [frontend/.env.mobile-device](/Users/_itsshree/Doondo/Doondo/frontend/.env.mobile-device)
+  - for iPhone and real Android devices on the same Wi-Fi as your Mac
+- [frontend/.env.mobile-android-emulator](/Users/_itsshree/Doondo/Doondo/frontend/.env.mobile-android-emulator)
+  - for Android emulator builds using `10.0.2.2`
+
+Current values:
+
+```bash
+# real device / iPhone
+npm run mobile:device
+
+# Android emulator
+npm run mobile:android-emulator
+```
+
+If your Mac IP changes, update only [frontend/.env.mobile-device](/Users/_itsshree/Doondo/Doondo/frontend/.env.mobile-device).
+
+### Android
+
+Prepare the Android emulator build:
+
+```bash
+npm run mobile:android-emulator
+```
+
+Open the Android project:
+
+```bash
+npm run mobile:android
+```
+
+Then in Android Studio:
+
+1. Wait for Gradle sync to finish.
+2. Choose an emulator or connected Android phone.
+3. Click `Run`.
+4. To generate an APK:
+   - `Build` -> `Build Bundle(s) / APK(s)` -> `Build APK(s)`
+
+### iPhone
+
+Prepare the real-device / iPhone build:
+
+```bash
+npm run mobile:device
+```
+
+Open the iOS project:
+
+```bash
+npm run mobile:ios
+```
+
+Then in Xcode:
+
+1. Choose a simulator or connected iPhone.
+2. Set your Apple developer signing team in the project settings.
+3. Click `Run`.
+4. For a device build, use a valid Apple developer account.
+
+### Mobile Workflow After Frontend Changes
+
+Every time you change the React frontend and want the native app updated:
+
+```bash
+npm run mobile:device
+```
+
+For Android emulator builds, use:
+
+```bash
+npm run mobile:android-emulator
+```
+
+### Notes
+
+- Capacitor app ID: `com.doondo.app`
+- Android cleartext HTTP is enabled for development.
+- iOS local-network/web-content HTTP access is enabled for development.
+- Replace these relaxed development settings with stricter HTTPS-only settings before production release.
+- App icons and splash screens now use Doondo branding generated from `frontend/assets/logo.svg`.
+
 ## Important Implementation Notes
 
 - Employer job posting is subscription-gated.

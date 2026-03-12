@@ -5,9 +5,25 @@
   "type": "module",
   "scripts": {
     "start": "vite --host 0.0.0.0 --port 3000",
-    "build": "vite build"
+    "build": "vite build",
+    "build:mobile": "vite build",
+    "build:mobile:device": "vite build --mode mobile-device",
+    "build:mobile:android-emulator": "vite build --mode mobile-android-emulator",
+    "mobile:assets": "npx @capacitor/assets generate --assetPath assets --iconBackgroundColor '#F26849' --splashBackgroundColor '#0D1412'",
+    "cap:sync": "npx cap sync",
+    "mobile:sync:device": "npm run build:mobile:device && npx cap sync",
+    "mobile:sync:android-emulator": "npm run build:mobile:android-emulator && npx cap sync",
+    "cap:copy": "npx cap copy",
+    "cap:open:android": "npx cap open android",
+    "cap:open:ios": "npx cap open ios",
+    "cap:run:android": "npx cap run android",
+    "cap:run:ios": "npx cap run ios"
   },
   "dependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0",
+    "@capacitor/ios": "^8.2.0",
     "axios": "^1.8.2",
     "lucide-react": "^0.511.0",
     "react": "^18.3.1",
@@ -16,6 +32,7 @@
     "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
